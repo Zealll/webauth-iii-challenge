@@ -25,6 +25,7 @@ class Login extends React.Component {
             localStorage.setItem('token', response.data.token)
             this.props.history.push('/userslist')
         })
+        .catch(error => console.log(error))
     }
 
 
@@ -33,6 +34,7 @@ class Login extends React.Component {
         return(
             <div className='forms'>
                 <form onSubmit={this.submit}>
+                <div>Type Your Credentials</div>
                     <input 
                       placeholder='User Name'
                       value={this.state.username}
@@ -50,7 +52,7 @@ class Login extends React.Component {
                     <div className='buttons'>
                         <button>Submit</button>
                             &nbsp;  &nbsp;
-                        <Link to='/users'><button>Sign Up</button></Link>
+                        <Link to='/signup'><button>Sign Up</button></Link>
                     </div>
                  </form>
             </div>
